@@ -75,5 +75,3 @@ RUN \
 		/var/lib/apt/lists/* \
 		/var/tmp/*
 
-# ports and start commands
-CMD bundle exec rails db:migrate && bundle exec rails server -b 0.0.0.0
