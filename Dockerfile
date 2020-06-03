@@ -38,7 +38,7 @@ RUN \
 		/syncing-server --strip-components=1
 
 
-FROM ruby:2.6.5-slim-stretch
+FROM ruby:alpine
 
 # set workdir
 WORKDIR /syncing-server
@@ -48,17 +48,15 @@ COPY --from=fetch-stage /syncing-server /syncing-server
 
 # install build packages
 RUN \
-	apt-get update \
-	&& apt-get install -y \
-	--no-install-recommends \
-		git \
-		build-essential \
-	\
+	apk add \
+	--no-cache \
+	--virtual .build-deps \
+		alpine-sdk \
 	# install runtime packages
 	\
-	&& apt-get install -y \
-	--no-install-recommends \
-		libmariadb-dev \
+	&& apk add \
+	--no-cache \
+		mariadb-dev \
 	# install gem and bundle packages
 	\
 	&& gem install bundler \
@@ -66,12 +64,4 @@ RUN \
 	\
 	# cleanup
 	\
-	&& apt-get remove --purge -y \
-		build-essential \
-		git \
-	&& apt-get autoremove -y \
-	&& rm -rf \
-		/tmp/* \
-		/var/lib/apt/lists/* \
-		/var/tmp/*
-
+	&& apk del .build-deps
