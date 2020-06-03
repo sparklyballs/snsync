@@ -56,6 +56,7 @@ RUN \
 	\
 	&& apk add \
 	--no-cache \
+		bash \
 		mariadb-dev \
 	# install gem and bundle packages
 	\
