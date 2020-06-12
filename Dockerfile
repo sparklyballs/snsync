@@ -1,4 +1,4 @@
-ARG ALPINE_VER="3.11"
+ARG ALPINE_VER="3.12"
 FROM alpine:${ALPINE_VER} as fetch-stage
 
 ############## fetch stage ##############
@@ -38,7 +38,7 @@ RUN \
 		/syncing-server --strip-components=1
 
 
-FROM ruby:2.6.5-slim-stretch
+FROM ruby:2.7.1-slim-buster
 
 # set workdir
 WORKDIR /syncing-server
