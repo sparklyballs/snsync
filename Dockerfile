@@ -1,4 +1,4 @@
-ARG ALPINE_VER="3.12"
+ARG ALPINE_VER="3.13"
 ARG RUBY_VER="2.7.1-slim-buster"
 FROM alpine:${ALPINE_VER} as fetch-stage
 
@@ -75,4 +75,3 @@ RUN \
 		/tmp/* \
 		/var/lib/apt/lists/* \
 		/var/tmp/*
-
