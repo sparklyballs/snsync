@@ -55,17 +55,17 @@ RUN \
 		git \
 		build-essential \
 	\
-	# install runtime packages
+# install runtime packages
 	\
 	&& apt-get install -y \
 	--no-install-recommends \
 		libmariadb-dev \
-	# install gem and bundle packages
+# install gem and bundle packages
 	\
 	&& gem install bundler \
 	&& bundle install \
 	\
-	# cleanup
+# cleanup
 	\
 	&& apt-get remove --purge -y \
 		build-essential \
