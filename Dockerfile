@@ -1,5 +1,5 @@
 ARG ALPINE_VER="3.13"
-ARG RUBY_VER="2.7.1-slim-buster"
+ARG RUBY_VER="2.7.2-slim-buster"
 FROM alpine:${ALPINE_VER} as fetch-stage
 
 ############## fetch stage ##############
